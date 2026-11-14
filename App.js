@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { ScrollView, StyleSheet, Text } from 'react-native';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import Boat from './components/Boats';
 
@@ -9,7 +9,9 @@ export default function App() {
       <SafeAreaView style={styles.safeArea} edges={['top']}>
         <StatusBar style="light" />
         <ScrollView style={styles.container} contentContainerStyle={styles.content}>
-          <Text style={styles.headerText}>GetABoat - For Sale</Text>
+          <View style={[styles.box, styles.header]}>
+            <Text style={styles.headerText}>GetABoat - For Sale</Text>
+          </View>
           <Boat
             name="Sea Ray 500 Sundancer"
             description="Contoured lines and dramatic styling reveal a refined and powerful presence that will take your breath away."
@@ -58,14 +60,26 @@ const styles = StyleSheet.create({
     backgroundColor: '#757575',
   },
   container: {
-    backgroundColor: '#fafafa',
+    backgroundColor: 'white',
   },
   content: {
+    padding: 8,
     paddingBottom: 48,
   },
+  box: {
+    borderWidth: 2,
+    borderColor: '#555',
+  },
+  header: {
+    backgroundColor: '#c0c0c0',
+    padding: 6,
+    marginBottom: 16,
+  },
   headerText: {
-    color: '#757575',
-    fontSize: 14,
+    color: 'black',
+    fontSize: 16,
+    fontWeight: 'bold',
     textAlign: 'center',
+    textTransform: 'uppercase',
   },
 });

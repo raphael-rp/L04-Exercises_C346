@@ -3,35 +3,60 @@ import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
 
 const Boat = ({ icon_name, name, description, poster }) => {
     return (
-        <View style={styles.container}>
-            <Text style={styles.nameText}>
-                <FontAwesome6 name={icon_name} size={22} color="#757575" /> {name}
-            </Text>
-            <Text style={styles.descriptionText}>{description}</Text>
+        <View style={[styles.box, styles.card]}>
+            <View style={styles.titleBar}>
+                <FontAwesome6 name={icon_name} size={18} color="white" style={{ marginRight: 6 }} />
+                <Text style={styles.nameText}>{name}</Text>
+            </View>
+            <View style={[styles.box, styles.descriptionBox]}>
+                <Text style={styles.descriptionText}>{description}</Text>
+            </View>
             <Image source={poster} style={styles.poster} />
         </View>
     );
 };
 
 const styles = StyleSheet.create({
-    container: {
-        marginTop: 16,
+    box: {
+        borderWidth: 2,
+        borderColor: "#555",
+    },
+    card: {
+        backgroundColor: "#bbb",
+        padding: 6,
+        paddingTop: 20,
+        marginBottom: 16,
+    },
+    titleBar: {
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "#555",
+        paddingVertical: 8,
     },
     nameText: {
-        color: "#757575",
-        fontSize: 24,
+        color: "white",
+        fontSize: 20,
         fontWeight: "300",
         letterSpacing: -1,
         textTransform: "uppercase",
     },
+    descriptionBox: {
+        backgroundColor: "#ddd",
+        borderColor: "#999",
+        borderWidth: 1,
+        marginVertical: 20,
+        marginHorizontal: 10,
+        padding: 4,
+    },
     descriptionText: {
-        color: "#757575",
+        color: "black",
         fontSize: 14,
+        textAlign: "center",
     },
     poster: {
-        width: 400,
+        width: "100%",
         height: 300,
-        maxWidth: "97%",
     },
 });
 
